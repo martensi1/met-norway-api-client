@@ -21,7 +21,7 @@ using (var client = new MetNorwayClient())
 Install with NuGet:
 
 ```
-dotnet add package AviationLib.MetNorwayClient
+dotnet add package PilotAppLibs.Clients.MetNorway
 ```
 
 ## License
