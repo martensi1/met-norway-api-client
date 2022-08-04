@@ -1,8 +1,7 @@
-using PilotAppLib.Clients.MetNorway;
 using System;
 using Xunit;
 
-namespace PilotAppLib.AirportFinder.Tests
+namespace PilotAppLib.Clients.MetNorway.Tests
 {
     public class EndpointBuilderTests
     {

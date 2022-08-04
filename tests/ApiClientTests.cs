@@ -1,8 +1,7 @@
-using PilotAppLib.Clients.MetNorway;
 using Moq;
 using Xunit;
 
-namespace PilotAppLib.AirportFinder.Tests
+namespace PilotAppLib.Clients.MetNorway.Tests
 {
     public class ApiClientTests
     {

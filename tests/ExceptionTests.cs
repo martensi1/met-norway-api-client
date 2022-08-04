@@ -1,7 +1,6 @@
-using PilotAppLib.Clients.MetNorway;
 using Xunit;
 
-namespace PilotAppLib.AirportFinder.Tests
+namespace PilotAppLib.Clients.MetNorway.Tests
 {
     public class ExceptionTests
     {
