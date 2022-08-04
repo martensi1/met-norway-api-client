@@ -4,7 +4,6 @@
     <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <AssemblyName>PilotAppLibs.Clients.MetNorway</AssemblyName>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Authors>Simon Mårtensson</Authors>
   </PropertyGroup>
 
   <ItemGroup>
