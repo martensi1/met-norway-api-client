@@ -16,10 +16,10 @@ namespace PilotAppLib.Clients.MetNorway.Tests
 
 
         [Theory]
-        [InlineData("METAR", "ESGJ", "/metar?icao=ESGJ")]
-        [InlineData("METAR", "ESSA", "/metar?icao=ESSA")]
-        [InlineData("TAF", "ESGJ", "/taf?icao=ESGJ")]
-        [InlineData("TAF", "ESSA", "/taf?icao=ESSA")]
+        [InlineData("METAR", "ESGJ", "/metar?icao=ESGJ&extended=true")]
+        [InlineData("METAR", "ESSA", "/metar?icao=ESSA&extended=true")]
+        [InlineData("TAF", "ESGJ", "/taf?icao=ESGJ&extended=true")]
+        [InlineData("TAF", "ESSA", "/taf?icao=ESSA&extended=true")]
         public void BuildEndpoint(string dataType, string airportIcao, string expectedRelativeUrl)
         {
             string output = _builder.BuildHttpEndpoint(dataType, airportIcao);

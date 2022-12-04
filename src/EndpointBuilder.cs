@@ -18,13 +18,14 @@ namespace PilotAppLib.Clients.MetNorway
         };
 
 
-        public string BuildHttpEndpoint(string dataType, string airportIcao)
+        public string BuildHttpEndpoint(string dataType, string icaoCode)
         {
             ThrowIfInvalidDataType(dataType, nameof(dataType));
 
             string httpEndpoint = BaseUrl
                     + $"/{dataType.ToLower()}"
-                    + $"?icao={airportIcao}";
+                    + $"?icao={icaoCode}"
+                    + $"&extended=true";
 
             return httpEndpoint;
         }

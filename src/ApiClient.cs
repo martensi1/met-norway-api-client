@@ -32,30 +32,30 @@ namespace PilotAppLib.Clients.MetNorway
         }
 
 
-        public string GetReport(string airport, string reportType)
+        public string GetReport(string icaoCode, string reportType)
         {
-            string text = SendRequest(airport, reportType);
-            string responseData = _responseProcessor.Process(text);
+            string text = SendRequest(icaoCode, reportType);
+            string responseData = _responseProcessor.Process(text, icaoCode);
 
             if (IsEmptyResponse(responseData))
             {
-                throw new NoDataAvailableException(airport, reportType);
+                throw new NoDataAvailableException(icaoCode, reportType);
             }
 
             return responseData;
         }
 
 
-        private string SendRequest(string location, string dataType)
+        private string SendRequest(string icaoCode, string dataType)
         {
-            string getEndpoint = _endpointBuilder.BuildHttpEndpoint(dataType, location);
+            string getEndpoint = _endpointBuilder.BuildHttpEndpoint(dataType, icaoCode);
             return _httpGateway.SendRequest(getEndpoint);
         }
 
         private bool IsEmptyResponse(string responseData)
         {
             return
-                string.IsNullOrWhiteSpace(responseData) || 
+                string.IsNullOrWhiteSpace(responseData) ||
                 responseData.Equals("no-content");
         }
     }
