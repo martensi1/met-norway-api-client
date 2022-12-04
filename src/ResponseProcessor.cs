@@ -33,14 +33,6 @@ namespace PilotAppLib.Clients.MetNorway
             text = text.Trim(' ', '\n');
         }
 
-        private string SplitAndGetTrimmedLastLine(string text)
-        {
-            var lines = text.Split("\n");
-            string last = lines.Last();
-
-            return last.Trim();
-        }
-
         private string ReorderIcaoCode(string reportString, string aerodromCode)
         {
             aerodromCode = aerodromCode.ToUpper();
