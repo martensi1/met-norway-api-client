@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
+﻿using PilotAppLib.Clients.MetNorway.Support;
+using System.Linq;
 
 namespace PilotAppLib.Clients.MetNorway
 {
@@ -16,9 +16,10 @@ namespace PilotAppLib.Clients.MetNorway
             TrimLinebreaksAndWhitespace(ref responseText);
 
             var lines = responseText.Split("\n");
-
             string result = lines.Last().Trim();
+
             result = ReorderIcaoCode(result, aerodromeCode);
+            result = ReorderAutoModifier(result);
 
             return result;
         }
@@ -33,20 +34,30 @@ namespace PilotAppLib.Clients.MetNorway
             text = text.Trim(' ', '\n');
         }
 
-        private string ReorderIcaoCode(string reportString, string aerodromCode)
+        private string ReorderIcaoCode(string reportString, string aerodromeCode)
         {
-            aerodromCode = aerodromCode.ToUpper();
+            aerodromeCode = aerodromeCode.ToUpper();
+            var pattern = @"( " + aerodromeCode + "(?= \\d{6}Z )|^" + aerodromeCode + " )";
 
-            var pattern = @"( " + aerodromCode + "(?= \\d{6}Z )|^" + aerodromCode + " )";
-            string reorderedReport = Regex.Replace(reportString, pattern, string.Empty);
-
-            if (!reorderedReport.Equals(reportString))
+            if (RegexUtil.ReplaceFirstOccurence(ref reportString, pattern, string.Empty))
             {
                 // Only reorder if the ICAO code was found
-                reorderedReport = aerodromCode + " " + reorderedReport;
+                reportString = aerodromeCode + " " + reportString;
             }
 
-            return reorderedReport;
+            return reportString;
+        }
+
+        private string ReorderAutoModifier(string reportString)
+        {
+            if (RegexUtil.ReplaceFirstOccurence(ref reportString, @"( AUTO )", " "))
+            {
+                // Only reorder if the AUTO modifier was found
+                // Insert AUTO modifier behind the date and time of report
+                _ = RegexUtil.ReplaceFirstOccurence(ref reportString, @"(?<=\d{6}Z) ", " AUTO ");
+            }
+
+            return reportString;
         }
     }
 }

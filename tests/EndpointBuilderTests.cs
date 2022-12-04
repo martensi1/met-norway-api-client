@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace PilotAppLib.Clients.MetNorway.Tests
+namespace PilotAppLib.Clients.MetNorway.Http.Tests
 {
     public class EndpointBuilderTests
     {

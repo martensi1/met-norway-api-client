@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PilotAppLib.Clients.MetNorway.Http;
+using System;
 using System.Text.RegularExpressions;
 
 namespace PilotAppLib.Clients.MetNorway

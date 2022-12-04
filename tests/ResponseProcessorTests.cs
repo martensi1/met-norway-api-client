@@ -22,7 +22,7 @@ namespace PilotAppLib.Clients.MetNorway.Tests
         [InlineData(
             "ESGR",
             "ESGR AUTO 031350Z 07008KT 9999 OVC023/// M01/M03 Q1030=",
-            "ESGR AUTO 031350Z 07008KT 9999 OVC023/// M01/M03 Q1030="
+            "ESGR 031350Z AUTO 07008KT 9999 OVC023/// M01/M03 Q1030="
             )]
         [InlineData(
             "ESGR",
@@ -32,7 +32,7 @@ namespace PilotAppLib.Clients.MetNorway.Tests
         [InlineData(
             "ESGJ",
             " METAR 1 \r\n METAR 2 \r\n\r\n AUTO ESGJ 031350Z 07008KT 9999 OVC023/// M01/M03 Q1030= \n ",
-            "ESGJ AUTO 031350Z 07008KT 9999 OVC023/// M01/M03 Q1030="
+            "ESGJ 031350Z AUTO 07008KT 9999 OVC023/// M01/M03 Q1030="
             )]
         public void Process(string icaoCode, string input, string expected)
         {

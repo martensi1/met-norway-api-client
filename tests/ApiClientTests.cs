@@ -1,3 +1,4 @@
+using PilotAppLib.Clients.MetNorway.Http;
 using Moq;
 using Xunit;
 

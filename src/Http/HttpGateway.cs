@@ -1,7 +1,7 @@
 ﻿using PilotAppLib.Http;
 using System;
 
-namespace PilotAppLib.Clients.MetNorway
+namespace PilotAppLib.Clients.MetNorway.Http
 {
     interface IHttpGateway : IDisposable
     {

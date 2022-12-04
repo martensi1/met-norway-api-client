@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace PilotAppLib.Clients.MetNorway
+namespace PilotAppLib.Clients.MetNorway.Http
 {
     interface IEndpointBuilder
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PilotAppLib.Clients.MetNorway.Http;
+using System;
 
 namespace PilotAppLib.Clients.MetNorway
 {
